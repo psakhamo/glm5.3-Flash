@@ -1,0 +1,265 @@
+{
+    "schema_version": 2,
+    "name": "glm-5-3-flash-fp8@aa_lcr",
+    "dataset_name": "aa_lcr",
+    "dataset_pretty_name": "AA-LCR",
+    "dataset_description": "\n## Overview\n\nAA-LCR (Artificial Analysis Long Context Retrieval) is a benchmark for evaluating long-context retrieval and reasoning capabilities of language models. It requires models to find and synthesize information across multiple documents.\n\n## Task Description\n\n- **Task Type**: Long-Context Question Answering\n- **Input**: Multiple documents + question requiring cross-document reasoning\n- **Output**: Answer synthesized from document information\n- **Context**: Very long context (multiple documents concatenated)\n\n## Key Features\n\n- Tests long-context retrieval abilities\n- Multiple document understanding\n- Cross-document reasoning required\n- LLM-based judging for answer correctness\n- Auto-download of document corpus\n\n## Evaluation Notes\n\n- Default configuration uses **0-shot** evaluation\n- Primary metric: **Accuracy** (via LLM judge)\n- Evaluates on **test** split\n- Documents auto-downloaded if `text_dir` not specified\n- Judge prompt compares candidate answer against reference\n",
+    "model_name": "glm-5-3-flash-fp8",
+    "metrics": [
+        {
+            "identity": {
+                "name": "accuracy",
+                "aggregation": "mean",
+                "dimensions": {}
+            },
+            "legacy_name": null,
+            "num": 10,
+            "score": 0.6,
+            "macro_score": 0.6,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 10,
+                    "score": 0.6,
+                    "macro_score": 0.6,
+                    "subsets": [
+                        {
+                            "name": "default",
+                            "score": 0.6,
+                            "num": 10,
+                            "is_aggregate": false
+                        }
+                    ]
+                }
+            ],
+            "semantics": {
+                "semantic_id": "quality.accuracy.ratio",
+                "metric_name": "Accuracy",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "higher_is_better",
+                "raw_unit": null,
+                "value_range": {
+                    "min": 0.0,
+                    "max": 1.0
+                },
+                "display_kind": "percent",
+                "display_multiplier": 100.0,
+                "display_unit": "%",
+                "display_precision": 1
+            }
+        }
+    ],
+    "analysis": "N/A",
+    "perf_metrics": {
+        "summary": {
+            "n_samples": 10,
+            "latency": {
+                "mean": 857.147223,
+                "std": 1891.059717,
+                "min": 35.168656,
+                "25%": 48.251942,
+                "50%": 61.053462,
+                "75%": 603.888274,
+                "90%": 1727.826215,
+                "99%": 5676.113733,
+                "max": 6114.812346
+            },
+            "throughput": {
+                "avg_output_tps": 2.45,
+                "avg_req_ps": 0.0012
+            },
+            "usage": {
+                "input_tokens": {
+                    "mean": 89972.7,
+                    "std": 15008.518937,
+                    "min": 76818.0,
+                    "25%": 76855.5,
+                    "50%": 87085.5,
+                    "75%": 95401.75,
+                    "90%": 113686.1,
+                    "99%": 113686.91,
+                    "max": 113687.0
+                },
+                "output_tokens": {
+                    "mean": 2102.5,
+                    "std": 2403.338662,
+                    "min": 336.0,
+                    "25%": 553.5,
+                    "50%": 897.5,
+                    "75%": 3015.5,
+                    "90%": 5945.1,
+                    "99%": 6610.11,
+                    "max": 6684.0
+                },
+                "total_tokens": {
+                    "mean": 92075.2,
+                    "std": 14423.061755,
+                    "min": 77412.0,
+                    "25%": 79147.25,
+                    "50%": 89654.0,
+                    "75%": 99926.5,
+                    "90%": 114109.4,
+                    "99%": 114355.64,
+                    "max": 114383.0
+                },
+                "total_input_tokens": 899727,
+                "total_output_tokens": 21025,
+                "total_tokens_count": 920752
+            }
+        },
+        "coverage": {
+            "requests_with_metrics": 10,
+            "total_requests": 10
+        },
+        "metric_semantics": {
+            "n_samples": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Samples",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            },
+            "latency": {
+                "semantic_id": "perf.latency.seconds",
+                "metric_name": "Latency",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "lower_is_better",
+                "raw_unit": "s",
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": "s",
+                "display_precision": 3
+            },
+            "throughput.avg_output_tps": {
+                "semantic_id": "perf.throughput.tokens_per_second",
+                "metric_name": "Output Throughput",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "higher_is_better",
+                "raw_unit": "tok/s",
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": "tok/s",
+                "display_precision": 2
+            },
+            "throughput.avg_req_ps": {
+                "semantic_id": "perf.throughput.requests_per_second",
+                "metric_name": "Request Throughput",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "higher_is_better",
+                "raw_unit": "req/s",
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": "req/s",
+                "display_precision": 2
+            },
+            "usage.input_tokens": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Input Tokens",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            },
+            "usage.output_tokens": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Output Tokens",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            },
+            "usage.total_tokens": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Total Tokens",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            }
+        }
+    },
+    "primary_metric_identity": {
+        "name": "accuracy",
+        "aggregation": "mean",
+        "dimensions": {}
+    },
+    "primary_metric_unavailable_reason": null,
+    "judge_summary": {
+        "status": "success",
+        "scored": 10,
+        "total": 10,
+        "coverage": 1.0,
+        "judge_models": [
+            "glm-5-3-flash-fp8"
+        ],
+        "valid_observations": 10,
+        "total_observations": 10,
+        "failures": {},
+        "disagreement": {
+            "numeric": {
+                "acc": {
+                    "mean_std": 0.0,
+                    "max_range": 0.0,
+                    "samples": 10
+                }
+            },
+            "categorical": {
+                "grade": {
+                    "mean_agreement_ratio": 1.0,
+                    "mean_vote_entropy": 0.0,
+                    "samples": 10
+                }
+            },
+            "position_consistency": {
+                "mean": null,
+                "samples": 0,
+                "swap_flip_count": 0
+            }
+        },
+        "error": null
+    },
+    "execution_summary": {
+        "requested": 10,
+        "succeeded": 10,
+        "errored": 0,
+        "incomplete": false,
+        "subsets": {
+            "default": {
+                "requested": 10,
+                "succeeded": 10,
+                "errored": 0
+            }
+        }
+    },
+    "num": 10
+}

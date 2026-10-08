@@ -1,0 +1,348 @@
+2026-10-07 15:53:44 - evalscope - INFO: Running with native backend
+2026-10-07 15:53:44 - evalscope - INFO: Dump task config to /home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/evalscope/aa_lcr_mini/configs/task_config.yaml
+2026-10-07 15:53:44 - evalscope - INFO: {
+    "model_id": "glm-5-3-flash-fp8",
+    "model_args": {},
+    "model_task": "text_generation",
+    "chat_template": null,
+    "datasets": [
+        "aa_lcr"
+    ],
+    "dataset_args": {
+        "aa_lcr": {}
+    },
+    "dataset_dir": "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.modelscope_cache/datasets",
+    "dataset_hub": "modelscope",
+    "repeats": 1,
+    "eval_type": "openai_api",
+    "eval_backend": "Native",
+    "eval_config": null,
+    "limit": 10,
+    "eval_batch_size": 8,
+    "use_cache": null,
+    "rerun_review": false,
+    "work_dir": "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/evalscope/aa_lcr_mini",
+    "no_timestamp": true,
+    "enable_progress_tracker": false,
+    "ignore_errors": false,
+    "debug": false,
+    "seed": 42,
+    "api_url": "http://127.0.0.1:8000/v1",
+    "api_key": "**********",
+    "timeout": null,
+    "stream": null,
+    "judge": {
+        "strategy": "llm",
+        "models": [
+            {
+                "model_id": "glm-5-3-flash-fp8",
+                "judge_id": "glm-5-3-flash-fp8",
+                "api_key": "**********",
+                "api_url": "http://127.0.0.1:8000/v1",
+                "eval_type": null,
+                "model_args": {},
+                "generation_config": {
+                    "temperature": 0.0,
+                    "max_tokens": 2048
+                }
+            }
+        ],
+        "contract": {
+            "system_prompt": null,
+            "prompt_template": null,
+            "score_mapping": null,
+            "score_type": "pattern"
+        },
+        "repeats": 1,
+        "position_swap": "auto",
+        "aggregation": "mean",
+        "min_valid_judges": 1
+    },
+    "analysis_report": false,
+    "collect_perf": true,
+    "use_sandbox": false,
+    "sandbox_type": "docker",
+    "sandbox_manager_config": {},
+    "evalscope_version": "1.12.0",
+    "model": "glm-5-3-flash-fp8",
+    "generation_config": {
+        "batch_size": 8,
+        "max_tokens": 32768,
+        "temperature": 0.0,
+        "extra_body": {
+            "chat_template_kwargs": {
+                "reasoning_effort": "low"
+            }
+        }
+    },
+    "sandbox": {
+        "enabled": false,
+        "engine": "docker",
+        "default_config": {},
+        "manager_config": {},
+        "pool_size": null
+    },
+    "agent_config": null
+}
+2026-10-07 15:53:44 - evalscope - INFO: Start loading benchmark dataset: aa_lcr
+2026-10-07 15:53:44 - evalscope - INFO: AA-LCR documents found: /home/psakhamo/GLM53_Flash/inference-accuracy-gate/.evalscope_cache/aa_lcr/lcr
+2026-10-07 15:53:44 - evalscope - WARNING: aa_lcr: 10 samples to evaluate (1 subset, --limit=10 per subset). Remove `--limit` for a formal evaluation.
+2026-10-07 15:53:44 - evalscope - INFO: Subsets of aa_lcr: ['default']
+2026-10-07 15:53:44 - evalscope - INFO: Loading model for prediction...
+2026-10-07 15:53:44 - evalscope - INFO: Creating model glm-5-3-flash-fp8 with eval_type=openai_api base_url=http://127.0.0.1:8000/v1, config={'retries': 5, 'retry_interval': 10, 'batch_size': 8, 'max_tokens': 32768, 'temperature': 0.0, 'anthropic_cache_strategy': 'evaluation', 'extra_body': {'chat_template_kwargs': {'reasoning_effort': 'low'}}}, model_args={}
+2026-10-07 15:53:44 - evalscope - INFO: Model loaded successfully.
+2026-10-07 15:54:22 - evalscope - INFO: Creating model glm-5-3-flash-fp8 with eval_type=openai_api base_url=http://127.0.0.1:8000/v1, config={'retries': 5, 'retry_interval': 10, 'max_tokens': 2048, 'temperature': 0.0, 'anthropic_cache_strategy': 'evaluation'}, model_args={}
+2026-10-07 15:54:44 - evalscope - INFO: Evaluating[aa_lcr]  30%| 3/10 [Elapsed: 01:00 < Remaining: 02:50, 24.38s/it]
+2026-10-07 15:55:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 02:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 15:56:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 03:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 15:57:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 04:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 15:58:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 05:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 15:59:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 06:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 16:00:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 07:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 16:01:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 08:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 16:02:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 09:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 16:03:44 - evalscope - INFO: Evaluating[aa_lcr]  70%| 7/10 [Elapsed: 10:00 < Remaining: 00:43, 14.34s/it]
+2026-10-07 16:04:44 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 11:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:05:44 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 12:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:06:44 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 13:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:07:44 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 14:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:08:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 15:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:09:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 16:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:10:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 17:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:11:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 18:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:12:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 19:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:13:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 20:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:14:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 21:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:15:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 22:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:16:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 23:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:17:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 24:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:18:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 25:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:19:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 26:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:20:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 27:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:21:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 28:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:22:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 29:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:23:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 30:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:23:46 - evalscope - WARNING: Attempt 1 / 5 failed: Request timed out.. Retrying...
+2026-10-07 16:24:40 - evalscope - WARNING: Attempt 1 / 5 failed: Request timed out.. Retrying...
+2026-10-07 16:24:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 31:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:25:45 - evalscope - INFO: Evaluating[aa_lcr]  80%| 8/10 [Elapsed: 32:00 < Remaining: 05:38, 169.18s/it]
+2026-10-07 16:26:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 33:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:27:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 34:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:28:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 35:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:29:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 36:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:30:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 37:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:31:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 38:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:32:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 39:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:33:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 40:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:34:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 41:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:35:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 42:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:36:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 43:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:37:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 44:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:38:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 45:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:39:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 46:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:40:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 47:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:41:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 48:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:42:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 49:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:43:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 50:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:44:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 51:00 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:45:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 52:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:46:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 53:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:47:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 54:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:48:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 55:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:49:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 56:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:50:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 57:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:51:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 58:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:52:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 59:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:53:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:00:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:53:58 - evalscope - WARNING: Attempt 2 / 5 failed: Request timed out.. Retrying...
+2026-10-07 16:54:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:01:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:55:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:02:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:56:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:03:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:57:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:04:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:58:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:05:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 16:59:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:06:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:00:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:07:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:01:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:08:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:02:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:09:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:03:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:10:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:04:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:11:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:05:45 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:12:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:06:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:13:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:07:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:14:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:08:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:15:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:09:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:16:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:10:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:17:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:11:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:18:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:12:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:19:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:13:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:20:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:14:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:21:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:15:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:22:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:16:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:23:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:17:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:24:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:18:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:25:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:19:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:26:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:20:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:27:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:21:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:28:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:22:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:29:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:23:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:30:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:24:10 - evalscope - WARNING: Attempt 3 / 5 failed: Request timed out.. Retrying...
+2026-10-07 17:24:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:31:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:25:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:32:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:26:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:33:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:27:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:34:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:28:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:35:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:29:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:36:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:30:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:37:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:31:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:38:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:32:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:39:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:33:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:40:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:34:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:41:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:35:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:42:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:36:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:43:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:37:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:44:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:38:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:45:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:39:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:46:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:40:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:47:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:41:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:48:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:42:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:49:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:43:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:50:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:44:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:51:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:45:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:52:01 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:46:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:53:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:47:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:54:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:48:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:55:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:49:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:56:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:50:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:57:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:51:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:58:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:52:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 1:59:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:53:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:00:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:54:21 - evalscope - WARNING: Attempt 4 / 5 failed: Request timed out.. Retrying...
+2026-10-07 17:54:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:01:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:55:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:02:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:56:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:03:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:57:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:04:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:58:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:05:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 17:59:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:06:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:00:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:07:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:01:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:08:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:02:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:09:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:03:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:10:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:04:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:11:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:05:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:12:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:06:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:13:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:07:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:14:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:08:46 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:15:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:09:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:16:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:10:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:17:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:11:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:18:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:12:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:19:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:13:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:20:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:14:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:21:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:15:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:22:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:16:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:23:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:17:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:24:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:18:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:25:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:19:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:26:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:20:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:27:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:21:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:28:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:22:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:29:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:23:47 - evalscope - INFO: Evaluating[aa_lcr]  90%| 9/10 [Elapsed: 2:30:02 < Remaining: 08:35, 515.85s/it]
+2026-10-07 18:24:33 - evalscope - ERROR: Processing item in subset='default' failed: Request timed out.
+Traceback:
+Traceback (most recent call last):
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 126, in read
+    with map_exceptions(exc_map):
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_base_client.py", line 1080, in request
+    response = self._send_request(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_client.py", line 491, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_client.py", line 469, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_base_client.py", line 1005, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/utils/function_utils.py", line 256, in run_in_threads_with_progress
+    result = fut.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/utils/function_utils.py", line 211, in _worker_with_loop_cleanup
+    return worker(item)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/evaluator/evaluator.py", line 333, in worker
+    return self._process_work_item(item, context.model_prediction_dir)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/evaluator/evaluator.py", line 377, in _process_work_item
+    task_state = self._predict_sample(item.sample, model_prediction_dir) if item.needs_predict else item.task_state
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/evaluator/evaluator.py", line 516, in _predict_sample
+    task_state = self.benchmark.run_inference(model=self.model, sample=sample, output_dir=model_prediction_dir)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/api/benchmark/adapters/default_data_adapter.py", line 554, in run_inference
+    result = self._on_inference(model, sample)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/api/benchmark/adapters/default_data_adapter.py", line 441, in _on_inference
+    model_output = model.generate(input=sample.input, tools=sample.tools)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/api/model/model.py", line 202, in generate
+    output = self.api.generate(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/models/openai_compatible.py", line 183, in generate
+    completion, ttft = retry_call(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/utils/function_utils.py", line 90, in retry_call
+    return func(*args, **kwargs)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/models/openai_compatible.py", line 177, in _create_and_collect
+    raw_completion = self.client.chat.completions.create(**request)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_base_client.py", line 1098, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+
+2026-10-07 18:24:33 - evalscope - INFO: Evaluating[aa_lcr] 100%| 10/10 [Elapsed: 2:30:48 < Remaining: 00:00, 2501.23s/it]
+2026-10-07 18:24:33 - evalscope - INFO: Running[eval]   0%| 0/1 [Elapsed: 2:30:49 < Remaining: ?, ?benchmark/s]

@@ -1,0 +1,127 @@
+agent_config: null
+analysis_report: false
+api_key: '**********'
+api_url: http://127.0.0.1:8000/v1
+chat_template: null
+collect_perf: true
+dataset_args:
+  aa_lcr: {}
+dataset_dir: /home/psakhamo/GLM53_Flash/inference-accuracy-gate/.modelscope_cache/datasets
+dataset_hub: modelscope
+datasets:
+- aa_lcr
+debug: false
+enable_progress_tracker: false
+eval_backend: Native
+eval_batch_size: 8
+eval_config: null
+eval_type: openai_api
+evalscope_version: 1.12.0
+evaluation_identity:
+  benchmarks:
+    aa_lcr:
+      cache_source: null
+      evaluation_version: v1.0
+      fingerprint: sha256:9fedd6333a890eace40b0015597a8dc7d387cb5ca39cc2bbb743ef00b7bdb7fe
+  schema_version: 1
+generation_config:
+  batch_size: 8
+  extra_body:
+    chat_template_kwargs:
+      reasoning_effort: low
+  max_tokens: 32768
+  temperature: 0.0
+ignore_errors: false
+judge:
+  aggregation: mean
+  contract:
+    prompt_template: null
+    score_mapping: null
+    score_type: pattern
+    system_prompt: null
+  min_valid_judges: 1
+  models:
+  - api_key: '**********'
+    api_url: http://127.0.0.1:8000/v1
+    eval_type: null
+    generation_config:
+      max_tokens: 2048
+      temperature: 0.0
+    judge_id: glm-5-3-flash-fp8
+    model_args: {}
+    model_id: glm-5-3-flash-fp8
+  position_swap: auto
+  repeats: 1
+  strategy: llm
+limit: 10
+model: glm-5-3-flash-fp8
+model_args: {}
+model_id: glm-5-3-flash-fp8
+model_task: text_generation
+no_timestamp: true
+repeats: 1
+rerun_review: false
+resolved_benchmarks:
+  aa_lcr:
+    aggregation: mean
+    dataset_hub: modelscope
+    dataset_id: evalscope/AA-LCR
+    dataset_revision: null
+    default_subset: default
+    eval_split: test
+    extra_params:
+      text_dir: null
+    few_shot_num: 0
+    few_shot_prompt_template: null
+    few_shot_random: false
+    filters: null
+    max_image_bytes: null
+    metric_list:
+    - accuracy
+    name: aa_lcr
+    primary_metric: null
+    prompt_template: '
+
+      BEGIN INPUT DOCUMENTS
+
+
+      {documents_text}
+
+
+      END INPUT DOCUMENTS
+
+
+      Answer the following question using the input documents provided above.
+
+
+      START QUESTION
+
+
+      {question}
+
+
+      END QUESTION
+
+      '
+    query_template: null
+    sandbox_config: {}
+    shuffle: false
+    shuffle_choices: false
+    subset_list:
+    - default
+    system_prompt: null
+    train_split: null
+sandbox:
+  default_config: {}
+  enabled: false
+  engine: docker
+  manager_config: {}
+  pool_size: null
+sandbox_manager_config: {}
+sandbox_type: docker
+seed: 42
+stream: null
+timeout: null
+use_cache: null
+use_sandbox: false
+work_dir: /home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/evalscope/aa_lcr_mini

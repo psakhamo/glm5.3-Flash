@@ -1,0 +1,224 @@
+{
+  "schema_version": "accuracy-gate/result/v1",
+  "tool": "inference-accuracy-gate",
+  "suite_name": "glm53flash_accuracy_fast_fail",
+  "suite_display_name": "GLM-5.3-Flash Accuracy Fast-Fail Suite",
+  "suite_version": "v1",
+  "pack_id": "glm53flash",
+  "provider": "accuracy_gate",
+  "lane": "capability-smoke",
+  "run_id": "e51c7fc1",
+  "timestamp": "2026-10-07T23:25:27.132129+00:00",
+  "status": "incomplete",
+  "run_status": "INFRA_ERROR",
+  "exit_code": 4,
+  "run_conditions": {
+    "endpoint": "http://127.0.0.1:8000/v1",
+    "endpoint_source": "env",
+    "model": "glm-5-3-flash-fp8",
+    "suite": {
+      "commit": null,
+      "dirty": null
+    },
+    "endpoint_reachable": true,
+    "endpoint_mock": false,
+    "endpoint_mock_kind": null,
+    "vllm_version": "0.31.0",
+    "served_models": [
+      "glm-5-3-flash-fp8"
+    ],
+    "max_model_len": 163840,
+    "launcher": {}
+  },
+  "benchmarks": [
+    {
+      "suite_version": "v1",
+      "provider": "accuracy_gate",
+      "model": "glm-5-3-flash-fp8",
+      "benchmark": "niah_single_2",
+      "metric": "retrieval_success",
+      "score": 1.0,
+      "per_length": {
+        "4096": 1.0,
+        "131072": 1.0
+      },
+      "per_length_status": {
+        "131072": "warn",
+        "4096": "warn"
+      },
+      "baseline_score": null,
+      "delta": null,
+      "status": "warn",
+      "runtime_seconds": 592.2,
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "sample_count": 100,
+      "n_requested": 100,
+      "n_returned": 100,
+      "n_graded": 100,
+      "n_graded_basis": "summed over 2 sequence lengths; per-length counts in per_length_graded. n_graded counts lm-eval sample rows carrying a scorer verdict; n_returned counts the same rows with a non-empty generation (an empty one is still graded, as wrong)",
+      "per_length_graded": {
+        "4096": 50,
+        "131072": 50
+      },
+      "per_length_returned": {
+        "4096": 50,
+        "131072": 50
+      },
+      "per_length_truncation": {
+        "4096": {
+          "at_budget": 36,
+          "total": 50,
+          "rate": 0.72,
+          "budget": 128,
+          "material": true
+        },
+        "131072": {
+          "at_budget": 4,
+          "total": 50,
+          "rate": 0.08,
+          "budget": 128,
+          "material": false
+        }
+      },
+      "truncation": {
+        "at_budget": 40,
+        "total": 100,
+        "rate": 0.4,
+        "budget": 128,
+        "material": true
+      },
+      "hard_fail": false,
+      "failure_reasons": [
+        "131072: no control band measured, so only the floor was checked (1.000 >= 0.700)",
+        "4096: no control band measured, so only the floor was checked (1.000 >= 0.700)"
+      ],
+      "corruption_markers": [],
+      "run_conditions": {
+        "lm_eval_transport": "completions",
+        "num_concurrent": 4,
+        "per_length_samples": {
+          "4096": 50,
+          "131072": 50
+        },
+        "limit": 50,
+        "seq_lengths": [
+          4096,
+          131072
+        ]
+      },
+      "coverage_warnings": [
+        "niah_single_2: 40/100 generations (40%) ended at the budget of 128 tokens. This benchmark scores a capped generation on what it did write (truncation_bounds_score: false), so the rate does not bound the score: it says the model did not stop on its own."
+      ],
+      "coverage_status": "reduced",
+      "manifest_hash": "sha256:98c01403fe631bdcef37bf299b2019a76091a7213d575cc31cb64f20ae38e8e7",
+      "manifest_path": "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/datasets/niah_single_2/manifest.json",
+      "gate_type": "band_containment",
+      "gate": {
+        "gate_type": "band_containment",
+        "floor": 0.7,
+        "seq_lengths": [
+          4096,
+          131072
+        ],
+        "control_band": {
+          "trials": 20,
+          "source": "outputs/baselines/niah_single_2_band_{model}.json"
+        }
+      },
+      "artifacts": [
+        "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/lm_eval/niah_single_2/seq_4096/glm-5-3-flash-fp8/results_2026-10-07T15-45-36.836610.json",
+        "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/lm_eval/niah_single_2/seq_4096/glm-5-3-flash-fp8/samples_niah_single_2_2026-10-07T15-45-36.836610.jsonl",
+        "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/lm_eval/niah_single_2/seq_131072/glm-5-3-flash-fp8/results_2026-10-07T15-53-37.942876.json",
+        "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/lm_eval/niah_single_2/seq_131072/glm-5-3-flash-fp8/samples_niah_single_2_2026-10-07T15-53-37.942876.jsonl"
+      ],
+      "harness": "lm-eval",
+      "harness_task": "niah_single_2",
+      "harness_metric_keys": {
+        "4096": "4096,none",
+        "131072": "131072,none"
+      },
+      "blocking": true,
+      "lane": "capability-smoke",
+      "suite_name": "glm53flash_accuracy_fast_fail",
+      "suite_display_name": "GLM-5.3-Flash Accuracy Fast-Fail Suite",
+      "pack_id": "glm53flash",
+      "run_status": "PASS"
+    },
+    {
+      "suite_name": "glm53flash_accuracy_fast_fail",
+      "suite_display_name": "GLM-5.3-Flash Accuracy Fast-Fail Suite",
+      "suite_version": "v1",
+      "pack_id": "glm53flash",
+      "provider": "accuracy_gate",
+      "model": "glm-5-3-flash-fp8",
+      "benchmark": "aa_lcr_mini",
+      "lane": "capability-smoke",
+      "metric": "accuracy",
+      "score": null,
+      "baseline_score": null,
+      "delta": null,
+      "status": "incomplete",
+      "runtime_seconds": 9051.6,
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "sample_count": 10,
+      "hard_fail": false,
+      "error_kind": "infra",
+      "failure_reasons": [
+        "Runner raised exception (INFRA_ERROR): EvalScope subprocess exited 1\nCMD: /home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/bin/python /home/psakhamo/GLM53_Flash/inference-accuracy-gate/runners/_evalscope_entry.py\nSTDOUT tail:\n\nSTDERR tail:\n 554, in run_inference\n    result = self._on_inference(model, sample)\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/api/benchmark/adapters/default_data_adapter.py\", line 441, in _on_inference\n    model_output = model.generate(input=sample.input, tools=sample.tools)\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/api/model/model.py\", line 202, in generate\n    output = self.api.generate(\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/models/openai_compatible.py\", line 183, in generate\n    completion, ttft = retry_call(\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/utils/function_utils.py\", line 90, in retry_call\n    return func(*args, **kwargs)\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/evalscope/models/openai_compatible.py\", line 177, in _create_and_collect\n    raw_completion = self.client.chat.completions.create(**request)\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_utils/_utils.py\", line 298, in wrapper\n    return func(*args, **kwargs)\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py\", line 1296, in create\n    return self._post(\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_base_client.py\", line 1375, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n  File \"/home/psakhamo/GLM53_Flash/inference-accuracy-gate/.venv-aalcr/lib/python3.10/site-packages/openai/_base_client.py\", line 1098, in request\n    raise APITimeoutError(request=request) from err\nopenai.APITimeoutError: Request timed out.\n",
+        "aa_lcr_mini graded 0 samples (n_requested=10, n_returned=None, n_graded=0). A score with no denominator is not a measurement; basis: runner raised before any sample was graded"
+      ],
+      "artifacts": [],
+      "n_requested": 10,
+      "n_returned": null,
+      "n_graded": 0,
+      "n_graded_basis": "runner raised before any sample was graded",
+      "blocking": true,
+      "run_status": "INFRA_ERROR"
+    },
+    {
+      "suite_version": "v1",
+      "provider": "accuracy_gate",
+      "model": "glm-5-3-flash-fp8",
+      "benchmark": "gsm8k_100",
+      "metric": "exact_match",
+      "score": 1.0,
+      "baseline_score": null,
+      "delta": null,
+      "status": "pass",
+      "runtime_seconds": 53.0,
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "sample_count": 100,
+      "n_requested": 100,
+      "n_returned": 400,
+      "n_graded": 400,
+      "n_graded_basis": "n_graded counts lm-eval sample rows carrying a scorer verdict; n_returned counts the same rows with a non-empty generation (an empty one is still graded, as wrong)",
+      "hard_fail": false,
+      "failure_reasons": [],
+      "truncation": {
+        "at_budget": 0,
+        "total": 400,
+        "rate": 0.0,
+        "budget": 512,
+        "material": false
+      },
+      "coverage_warnings": [],
+      "artifacts": [
+        "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/lm_eval/gsm8k_100/glm-5-3-flash-fp8/results_2026-10-07T18-25-24.751575.json",
+        "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/lm_eval/gsm8k_100/glm-5-3-flash-fp8/samples_gsm8k_2026-10-06T12-40-10.798709.jsonl",
+        "/home/psakhamo/GLM53_Flash/inference-accuracy-gate/outputs/latest/lm_eval/gsm8k_100/glm-5-3-flash-fp8/samples_gsm8k_2026-10-07T18-25-24.751575.jsonl"
+      ],
+      "harness": "lm-eval",
+      "harness_task": "gsm8k",
+      "harness_metric_key": "exact_match,flexible-extract",
+      "blocking": true,
+      "lane": "capability-smoke",
+      "suite_name": "glm53flash_accuracy_fast_fail",
+      "suite_display_name": "GLM-5.3-Flash Accuracy Fast-Fail Suite",
+      "pack_id": "glm53flash",
+      "run_status": "PASS"
+    }
+  ]
+}

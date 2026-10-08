@@ -1,0 +1,177 @@
+{
+  "results": {
+    "niah_single_2": {
+      "name": "niah_single_2",
+      "alias": "niah_single_2",
+      "sample_len": 10,
+      "4096,none": -1,
+      "4096_stderr,none": "N/A",
+      "131072,none": 1.0,
+      "131072_stderr,none": "N/A"
+    }
+  },
+  "group_subtasks": {},
+  "configs": {
+    "niah_single_2": {
+      "task": "niah_single_2",
+      "custom_dataset": "def niah_single_2(**kwargs):\n    seq_lengths = kwargs.pop(\"max_seq_lengths\", DEFAULT_SEQ_LENGTHS)\n    return download_dataset(\n        generate_samples(\n            get_haystack(type_haystack=\"essay\"),\n            max_seq_length=seq,\n            template=TEMPLATE,\n            type_haystack=\"essay\",\n            type_needle_k=\"words\",\n            type_needle_v=\"numbers\",\n            num_samples=500,\n            TOKENIZER=get_tokenizer(**kwargs),\n        )\n        for seq in seq_lengths\n    )\n",
+      "dataset_path": "",
+      "dataset_name": "",
+      "test_split": "test",
+      "doc_to_text": "{{input}}",
+      "doc_to_target": "{{outputs}}",
+      "unsafe_code": false,
+      "process_results": "def process_results(doc: dict, results: list[str]) -> dict[str, float]:\n    # hacky: set all other lengths to -1\n    metrics = {str(length): -1.0 for length in DEFAULT_SEQ_LENGTHS}\n    input_len = doc[\"max_length\"]\n    pred = postprocess_pred(results)\n    score = string_match_all(pred, [doc[\"outputs\"]])\n    metrics[str(input_len)] = score\n    return metrics\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "{{input}}",
+        "doc_to_choice": null,
+        "doc_to_target": "{{outputs}}",
+        "gen_prefix": "{{gen_prefix}}",
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "4096",
+          "aggregation": "def aggregate_metrics(metrics: list[float]) -> float:\n    res = [x for x in metrics if x != -1]\n    if not res:\n        # we don't have any samples with this length\n        return -1\n    return sum(res) / len(res)\n",
+          "higher_is_better": true
+        },
+        {
+          "metric": "8192",
+          "aggregation": "def aggregate_metrics(metrics: list[float]) -> float:\n    res = [x for x in metrics if x != -1]\n    if not res:\n        # we don't have any samples with this length\n        return -1\n    return sum(res) / len(res)\n",
+          "higher_is_better": true
+        },
+        {
+          "metric": "16384",
+          "aggregation": "def aggregate_metrics(metrics: list[float]) -> float:\n    res = [x for x in metrics if x != -1]\n    if not res:\n        # we don't have any samples with this length\n        return -1\n    return sum(res) / len(res)\n",
+          "higher_is_better": true
+        },
+        {
+          "metric": "32768",
+          "aggregation": "def aggregate_metrics(metrics: list[float]) -> float:\n    res = [x for x in metrics if x != -1]\n    if not res:\n        # we don't have any samples with this length\n        return -1\n    return sum(res) / len(res)\n",
+          "higher_is_better": true
+        },
+        {
+          "metric": "65536",
+          "aggregation": "def aggregate_metrics(metrics: list[float]) -> float:\n    res = [x for x in metrics if x != -1]\n    if not res:\n        # we don't have any samples with this length\n        return -1\n    return sum(res) / len(res)\n",
+          "higher_is_better": true
+        },
+        {
+          "metric": "131072",
+          "aggregation": "def aggregate_metrics(metrics: list[float]) -> float:\n    res = [x for x in metrics if x != -1]\n    if not res:\n        # we don't have any samples with this length\n        return -1\n    return sum(res) / len(res)\n",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "do_sample": false,
+        "temperature": 0.0,
+        "max_gen_toks": 128,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "gen_prefix": "{{gen_prefix}}",
+      "metadata": {
+        "version": 1.0,
+        "model": "glm-5-3-flash-fp8",
+        "base_url": "http://127.0.0.1:8000/v1/completions",
+        "num_concurrent": 4,
+        "max_retries": 3,
+        "timeout": 3600,
+        "tokenized_requests": false,
+        "tokenizer": "gpt2",
+        "max_seq_lengths": [
+          131072
+        ],
+        "config_source": "/home/psakhamo/.local/lib/python3.10/site-packages/lm_eval/tasks/ruler/niah_single_2.yaml"
+      }
+    }
+  },
+  "versions": {
+    "niah_single_2": 1.0
+  },
+  "n-shot": {
+    "niah_single_2": 0
+  },
+  "higher_is_better": {
+    "niah_single_2": {
+      "4096": true,
+      "8192": true,
+      "16384": true,
+      "32768": true,
+      "65536": true,
+      "131072": true
+    }
+  },
+  "n-samples": {
+    "niah_single_2": {
+      "original": 500,
+      "effective": 10
+    }
+  },
+  "config": {
+    "model": "local-completions",
+    "model_args": {
+      "model": "glm-5-3-flash-fp8",
+      "base_url": "http://127.0.0.1:8000/v1/completions",
+      "num_concurrent": 4,
+      "max_retries": 3,
+      "timeout": 3600,
+      "tokenized_requests": false,
+      "tokenizer": "gpt2"
+    },
+    "batch_size": 1,
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": 10.0,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {},
+    "random_seed": 0,
+    "numpy_seed": 0,
+    "torch_seed": 0,
+    "fewshot_seed": 0
+  },
+  "git_hash": null,
+  "date": 1791308136.8591743,
+  "pretty_env_info": "N/A (torch not installed)",
+  "transformers_version": "5.19.0",
+  "lm_eval_version": "0.4.12",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    null,
+    "None"
+  ],
+  "tokenizer_eos_token": [
+    "<|endoftext|>",
+    "50256"
+  ],
+  "tokenizer_bos_token": [
+    "<|endoftext|>",
+    "50256"
+  ],
+  "eot_token_id": 50256,
+  "max_length": 2047,
+  "task_hashes": {
+    "niah_single_2": "84cf118fb5f8d82742a13229809e8b33f3b622de1e8ff655ea90bd679e691caa"
+  },
+  "model_source": "local-completions",
+  "model_name": "glm-5-3-flash-fp8",
+  "model_name_sanitized": "glm-5-3-flash-fp8",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": null,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "total_evaluation_time_seconds": "220.46140888507944"
+}

@@ -1,0 +1,40 @@
+[PASS] models endpoint: served ids=['glm-5-3-flash-fp8']
+[PASS] basic completion: 1.0s content='OK'
+[PASS] reasoning: correct answer: 7.9s answer_has_0.05=True
+[FAIL] reasoning: parser populated reasoning_content: reasoning_content len=0 content len=681
+   --- reasoning_content (first 400) ---
+   
+   --- content (first 400) ---
+   ## Working Through It
+   
+   Let me set up an equation. Let the ball's cost = **x**.
+   
+   - Ball: x
+   - Bat: x + $1.00 (since it costs $1.00 *more* than the ball)
+   
+   Together they cost $1.10:
+   
+   $$x + (x + 1.00) = 1.10$$
+   $$2x + 1.00 = 1.10$$
+   $$2x = 0.10$$
+   $$x = 0.05$$
+   
+   ## Checking the Answer
+   
+   - Ball: **$0.05**
+   - Bat: $0.05 + $1.00 = **$1.05**
+   - Total: $0.05 + $1.05 = **$1.10** ✓
+   - Difference: $1.05 − $0.05 = **$1
+[PASS] tool call: emitted: 1.1s finish=tool_calls calls=1
+[PASS] tool call: args parsed: args={'city': 'Austin', 'unit': 'celsius'}
+[PASS] tool call: result round-trip: 1.0s final='The current weather in Austin, Texas is **31°C and sunny**. ☀️'
+
+============================================================
+SUMMARY: 6/7 checks passed
+  PASS  models endpoint
+  PASS  basic completion
+  PASS  reasoning: correct answer
+  FAIL  reasoning: parser populated reasoning_content
+  PASS  tool call: emitted
+  PASS  tool call: args parsed
+  PASS  tool call: result round-trip
